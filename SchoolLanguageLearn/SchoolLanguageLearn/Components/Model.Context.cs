@@ -13,10 +13,10 @@ namespace SchoolLanguageLearn.Components
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LanguaheSchool322Entities : DbContext
+    public partial class LanguaheSchoollEntities : DbContext
     {
-        public LanguaheSchool322Entities()
-            : base("name=LanguaheSchool322Entities")
+        public LanguaheSchoollEntities()
+            : base("name=LanguaheSchoollEntities")
         {
         }
     
@@ -35,7 +35,6 @@ namespace SchoolLanguageLearn.Components
         public virtual DbSet<ProductSale> ProductSale { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
     }
 }
