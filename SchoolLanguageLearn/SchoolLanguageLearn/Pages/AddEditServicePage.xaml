@@ -16,15 +16,12 @@
                         <Image Source="{Binding MainImage}" x:Name="MainImage" Height="150" ></Image>
                     </Border>
                     <Button x:Name="EditImageBtn" Click="EditImageBtn_Click">Изменить изображение</Button>
-                    <ListView x:Name="ImageList">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn>
-                                    <Image Source="{Binding PhotoByte}"></Image>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                    <ScrollViewer Margin="2" 
+                                  HorizontalAlignment="Center" 
+                                  HorizontalScrollBarVisibility="Disabled">
+                        <WrapPanel Height="100" Width="300" x:Name="PhotoWp"></WrapPanel>
+                    </ScrollViewer>
+                    <Button x:Name="AddImageBtn" Click="AddImageBtn_Click">Добавить изображение</Button>
                 </StackPanel>
             </StackPanel>
             <StackPanel>

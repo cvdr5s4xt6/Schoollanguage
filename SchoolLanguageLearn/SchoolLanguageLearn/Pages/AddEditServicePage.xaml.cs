@@ -28,7 +28,8 @@ namespace SchoolLanguageLearn.Pages
         {
             InitializeComponent();
             service = _service;
-            this.DataContext = service; 
+            this.DataContext = service;
+            RefreshPhoto();
         }
 
         private void EditImageBtn_Click(object sender, RoutedEventArgs e)
@@ -79,6 +80,31 @@ namespace SchoolLanguageLearn.Pages
             if (!(char.IsDigit(e.Text[0]))) //(char.Parse(e.Text))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void AddImageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg*|*.jpeg|*.jpeg"
+            };
+            if (openFile.ShowDialog().GetValueOrDefault())
+            {
+                App.db.ServicePhoto.Add(new ServicePhoto
+                {
+                    ServiceID = service.ID,
+                    PhotoByte = File.ReadAllBytes(openFile.FileName)
+                });
+                App.db.SaveChanges();
+                RefreshPhoto();
+            }
+        }
+        private void RefreshPhoto()
+        {
+            foreach (var photo in service.ServicePhoto)
+            {
+                PhotoWp.Children.Add(new PhotoUserControl1(photo));
             }
         }
     }
