@@ -28,6 +28,7 @@
           
             <TextBlock x:Name="DiscountTb" Grid.Row="2" Grid.Column="1"></TextBlock>
             <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                <Button x:Name="EntryBtn" Click="EntryBtn_Click">Записать на услугу</Button>
                 <Button x:Name="EditBtn" Click="EditBtn_Click">Редактировать</Button>
                 <Button x:Name="DeleteBtn" Click="DeleteBtn_Click">Удалить</Button>
             </StackPanel>

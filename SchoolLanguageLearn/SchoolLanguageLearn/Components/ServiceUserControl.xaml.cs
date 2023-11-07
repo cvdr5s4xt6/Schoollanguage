@@ -29,6 +29,7 @@ namespace SchoolLanguageLearn.Components
             service = _service;
             if (App.isAdmin == false)
             {
+                EntryBtn.Visibility = Visibility.Hidden;
                 EditBtn.Visibility = Visibility.Hidden;
                 DeleteBtn.Visibility = Visibility.Hidden;
             }
@@ -79,6 +80,11 @@ namespace SchoolLanguageLearn.Components
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
             Navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditServicePage(service)));
+        }
+
+        private void EntryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Запись на услугу", new ClientRecordPage(service)));
         }
     }
 }

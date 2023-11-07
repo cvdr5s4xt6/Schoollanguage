@@ -112,6 +112,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Components\Navigation.cs" />
+    <Compile Include="Components\PartialClass\Client.cs" />
     <Compile Include="Components\PartialClass\Service.cs" />
     <Compile Include="Components\PhotoUserControl1.xaml.cs">
       <DependentUpon>PhotoUserControl1.xaml</DependentUpon>
@@ -148,6 +149,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ClientRecordPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ServicesListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +161,9 @@
   <ItemGroup>
     <Compile Include="Pages\AddEditServicePage.xaml.cs">
       <DependentUpon>AddEditServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ClientRecordPage.xaml.cs">
+      <DependentUpon>ClientRecordPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ServicesListPage.xaml.cs">
       <DependentUpon>ServicesListPage.xaml</DependentUpon>

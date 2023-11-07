@@ -24,17 +24,25 @@ namespace SchoolLanguageLearn.Components
         public PhotoUserControl1(ServicePhoto _servicePhoto)
         {
             InitializeComponent();
+            //App.servicePage = this;
             servicePhoto = _servicePhoto;
             this.DataContext = servicePhoto;
         }
 
         private void MainBtbn_Click(object sender, RoutedEventArgs e)
         {
-
+            var selPhoto = servicePhoto.PhotoByte;
+            servicePhoto.PhotoByte = servicePhoto.Service.MainImage;
+            servicePhoto.Service.MainImage = selPhoto;
+            App.servicePage.RefreshPhoto();
+            App.db.SaveChanges();
         }
 
         private void DeletBtbn_Click(object sender, RoutedEventArgs e)
         {
+            App.db.ServicePhoto.Remove(servicePhoto);
+            App.servicePage.RefreshPhoto();
+            App.db.SaveChanges();
 
         }
     }

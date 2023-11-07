@@ -100,12 +100,19 @@ namespace SchoolLanguageLearn.Pages
                 RefreshPhoto();
             }
         }
-        private void RefreshPhoto()
+        public void RefreshPhoto()
         {
+            PhotoWp.Children.Clear();
             foreach (var photo in service.ServicePhoto)
             {
                 PhotoWp.Children.Add(new PhotoUserControl1(photo));
             }
+            BitmapImage bitmapImage = new BitmapImage();
+            MemoryStream byteStream = new MemoryStream(service.MainImage);
+            bitmapImage.BeginInit();
+            bitmapImage.StreamSource = byteStream;
+            bitmapImage.EndInit();
+            MainImage.Source = bitmapImage;
         }
     }
 }
