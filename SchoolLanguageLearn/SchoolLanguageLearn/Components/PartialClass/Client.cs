@@ -11,8 +11,8 @@ namespace SchoolLanguageLearn.Components
         public string FullName
         {
             get 
-            { 
-                return
+            {
+                return $"{FirstName} {LastName} {Patronymic}";
             }
         }
     }

@@ -21,7 +21,7 @@ namespace SchoolLanguageLearn.Pages
     /// </summary>
     public partial class ClientRecordPage : Page
     {
-        Service _service;
+        Service service;
         public ClientRecordPage(Service _service)
         {
             InitializeComponent();
@@ -30,6 +30,50 @@ namespace SchoolLanguageLearn.Pages
             ClientCb.ItemsSource = App.db.Client.ToList();
             ClientCb.DisplayMemberPath = "FullName";
             DateDp.DisplayDateStart = DateTime.Today;
+        }
+
+        private void EntryTb_Click(object sender, RoutedEventArgs e)
+        {
+            if (ClientCb.SelectedItem != null &&
+                DateDp.SelectedDate != null && StartTimeTb.Text != "")
+            {
+                var startDate = $"{DateDp.SelectedDate.Value.ToString("dd.MM.yyyy")} {StartTimeTb.Text}";
+                if(DateTime.TryParse(startDate, out DateTime dateTimeStart))
+                {
+                    if (dateTimeStart > DateTime.Now)
+                    {
+                        var selecTClient = ClientCb.SelectedItem as Client;
+                        App.db.ClientService.Add(new ClientService()
+                        {
+                            ClientID = selecTClient.ID,
+                            ServiceID = service.ID,
+                            StartTime = dateTimeStart,
+                        });
+                        App.db.SaveChanges();
+                        MessageBox.Show("Запись добавлена");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Время прошло");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Время введено неверно");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Заполните все поля");
+            }
+        }
+
+        private void StartTimeTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(StartTimeTb.Text.Length == 5 && DateTime.TryParse(StartTimeTb.Text, out DateTime resultTime))
+            {
+                EndTimeTb.Text = resultTime.AddSeconds(service.DurationInSeconds).ToShortTimeString();
+            }
         }
     }
 }

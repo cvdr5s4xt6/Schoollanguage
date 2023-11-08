@@ -113,6 +113,7 @@
     </Compile>
     <Compile Include="Components\Navigation.cs" />
     <Compile Include="Components\PartialClass\Client.cs" />
+    <Compile Include="Components\PartialClass\ClientService.cs" />
     <Compile Include="Components\PartialClass\Service.cs" />
     <Compile Include="Components\PhotoUserControl1.xaml.cs">
       <DependentUpon>PhotoUserControl1.xaml</DependentUpon>
@@ -157,6 +158,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\UpcomingEntriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AddEditServicePage.xaml.cs">
@@ -167,6 +172,9 @@
     </Compile>
     <Compile Include="Pages\ServicesListPage.xaml.cs">
       <DependentUpon>ServicesListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpcomingEntriesPage.xaml.cs">
+      <DependentUpon>UpcomingEntriesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
