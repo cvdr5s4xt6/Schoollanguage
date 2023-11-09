@@ -5,13 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SchoolLanguageLearn.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="850" d:DesignWidth="800"
       Title="AddEditServicePage">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70">
-                <StackPanel>
+                <StackPanel >
                     <Border BorderThickness="3" BorderBrush="LightGray">
                         <Image Source="{Binding MainImage}" x:Name="MainImage" Height="150" ></Image>
                     </Border>
@@ -19,9 +19,9 @@
                     <ScrollViewer Margin="2" 
                                   HorizontalAlignment="Center" 
                                   HorizontalScrollBarVisibility="Disabled">
-                        <WrapPanel Height="100" Width="300" x:Name="PhotoWp"></WrapPanel>
+                        <WrapPanel Height="350" Width="350" x:Name="PhotoWp"></WrapPanel>
                     </ScrollViewer>
-                    <Button x:Name="AddImageBtn" Click="AddImageBtn_Click">Добавить изображение</Button>
+                    <Button Height="25" x:Name="AddImageBtn" Click="AddImageBtn_Click">Добавить изображение</Button>
                 </StackPanel>
             </StackPanel>
             <StackPanel>

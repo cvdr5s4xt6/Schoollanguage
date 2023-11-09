@@ -45,11 +45,24 @@ namespace SchoolLanguageLearn
             {  
                 Navigation.ClearHistory();
                 App.isAdmin = true;
+                MessageBox.Show("Успешно");
                 Navigation.NextPage(new PageComponent("Список услуг", new ServicesListPage()));
+
               
                 PasswordPb.Clear();
                
             }
+            else if (string.IsNullOrWhiteSpace(PasswordPb.Password))
+                {
+                MessageBox.Show("Введите пароль");
+
+            }
+            else if (PasswordPb.Password !="0000")
+            {
+                MessageBox.Show("Пароль неверный!");
+                PasswordPb.Clear();
+            }
+            
             
         }
 
@@ -57,7 +70,9 @@ namespace SchoolLanguageLearn
         {
             Navigation.ClearHistory();
             App.isAdmin = false;
+            MessageBox.Show("Отключение");
             Navigation.NextPage(new PageComponent("Список услуг", new ServicesListPage()));
+            
             
         }
 

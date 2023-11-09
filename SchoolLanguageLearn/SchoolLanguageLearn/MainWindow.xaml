@@ -20,7 +20,7 @@
         <Image Source="/Resources/school_logo.png"></Image>
         <TextBlock x:Name="TitleTb"  HorizontalAlignment="Center" Grid.Column="1">Школа языков “Леарн”</TextBlock>
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
-            <Button x:Name="OnAdminBtn" Click="OnAdminBtn_Click">
+            <Button  x:Name="OnAdminBtn" Click="OnAdminBtn_Click">
                 <TextBlock FontSize="10">Включить<LineBreak/>админа</TextBlock>
             </Button>
             <PasswordBox x:Name="PasswordPb" Padding="5" Height="35" Margin="5"></PasswordBox>

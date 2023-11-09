@@ -10,7 +10,7 @@
         <Border>
             <StackPanel>
             <Image Source="{Binding PhotoByte}" x:Name="ImageImg" Height="250"></Image>
-            <Button x:Name="MainBtbn" Click="MainBtbn_Click">Сделать главным</Button>
+            <Button  x:Name="MainBtbn" Click="MainBtbn_Click">Сделать главным</Button>
             <Button x:Name="DeletBtbn" Click="DeletBtbn_Click" >Удалить</Button>
         </StackPanel>
         </Border>
