@@ -27,9 +27,15 @@ namespace SchoolLanguageLearn.Pages
         public AddEditServicePage(Service _service)
         {
             InitializeComponent();
+            App.servicePage = this;
             service = _service;
             this.DataContext = service;
             RefreshPhoto();
+            if(service.ID != 0)
+            {
+                PhotoScroll.Visibility = Visibility.Visible;
+                AddImageBtn.Visibility = Visibility.Visible;
+            }
         }
 
         private void EditImageBtn_Click(object sender, RoutedEventArgs e)
@@ -65,13 +71,16 @@ namespace SchoolLanguageLearn.Pages
             }
             if(errors.Length > 0)
             {
-                MessageBox.Show(errors.ToString());
+                MessageBox.Show(errors.ToString());  
             }
             else
             {
                 App.db.SaveChanges();
+               
                 MessageBox.Show("Сохранено");
-                Navigation.NextPage(new PageComponent("Список услуг", new ServicesListPage()));
+                PhotoScroll.Visibility = Visibility.Visible;
+                AddImageBtn.Visibility = Visibility.Visible;  
+        
             }
         }
 
@@ -108,11 +117,19 @@ namespace SchoolLanguageLearn.Pages
                 PhotoWp.Children.Add(new PhotoUserControl1(photo));
             }
             BitmapImage bitmapImage = new BitmapImage();
-            MemoryStream byteStream = new MemoryStream(service.MainImage);
-            bitmapImage.BeginInit();
-            bitmapImage.StreamSource = byteStream;
-            bitmapImage.EndInit();
-            MainImage.Source = bitmapImage;
+            if (service.MainImage != null)
+            {
+                MemoryStream byteStream = new MemoryStream(service.MainImage);
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = byteStream;
+                bitmapImage.EndInit();
+                MainImage.Source = bitmapImage;
+            }
+            else
+            {
+                bitmapImage = new BitmapImage(new Uri(@"\Resources\school_logo.png", UriKind.Relative));
+            }
+           
         }
     }
 }

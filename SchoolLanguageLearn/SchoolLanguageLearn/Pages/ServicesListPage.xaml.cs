@@ -28,6 +28,7 @@ namespace SchoolLanguageLearn.Pages
             if (App.isAdmin == false)
             {
                 AddBtn.Visibility = Visibility.Hidden;
+                EntriesBtn.Visibility = Visibility.Hidden;
             }
             Refresh();
         }
